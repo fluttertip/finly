@@ -46,7 +46,7 @@ class TransactionCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              (transaction.isIncome ? '+' : '-') + '\$${transaction.amount.toStringAsFixed(2)}',
+              (transaction.isIncome ? '+' : '-') + '\RS ${transaction.amount.toStringAsFixed(2)}',
               style: TextStyle(
                 color: color,
                 fontWeight: FontWeight.bold,

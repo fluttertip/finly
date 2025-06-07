@@ -84,7 +84,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                     const TextInputType.numberWithOptions(decimal: true),
                 decoration: const InputDecoration(
                   labelText: 'Amount',
-                  prefixText: '\$ ',
+                  prefixText: '\Rs ',
                   border: OutlineInputBorder(),
                 ),
                 validator: (value) {

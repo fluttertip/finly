@@ -1,4 +1,4 @@
-// This file is intentionally left blank.import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class StatTile extends StatelessWidget {
   final String title;
@@ -44,7 +44,7 @@ class StatTile extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             Text(
-              '\$${amount.toStringAsFixed(2)}',
+              '\RS ${amount.toStringAsFixed(2)}',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: color,

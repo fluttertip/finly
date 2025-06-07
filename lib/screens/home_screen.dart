@@ -1,3 +1,5 @@
+import 'package:finly/widgets/balance_card.dart';
+import 'package:finly/widgets/expense_pie_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -41,7 +43,9 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => const AddTransactionScreen()),
+                  MaterialPageRoute(
+                    builder: (_) => const AddTransactionScreen(),
+                  ),
                 );
               },
               child: const Icon(Icons.add),
@@ -53,8 +57,14 @@ class _HomeScreenState extends State<HomeScreen> {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Dashboard'),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Transactions'),
-          BottomNavigationBarItem(icon: Icon(Icons.currency_bitcoin), label: 'Crypto'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'Transactions',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.currency_bitcoin),
+            label: 'Crypto',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
@@ -81,12 +91,18 @@ class DashboardTab extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Total Balance', style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 8),
-            Text('\$${balance.toStringAsFixed(2)}',
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    )),
+            // Text(
+            //   'Total Balance',
+            //   style: Theme.of(context).textTheme.titleLarge,
+            // ),
+            // const SizedBox(height: 8),
+            // Text(
+            //   '\Rs.  ${balance.toStringAsFixed(2)}',
+            //   style: Theme.of(
+            //     context,
+            //   ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
+            // ),
+            BalanceCard(balance: balance),
             const SizedBox(height: 24),
 
             // Stats tiles
@@ -110,8 +126,18 @@ class DashboardTab extends StatelessWidget {
 
             const SizedBox(height: 24),
 
-            Text('Recent Transactions',
-                style: Theme.of(context).textTheme.titleMedium),
+            Text(
+              'Expenses by Category',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 8),
+
+            ExpensePieChart(transactions: transactions),
+
+            Text(
+              'Recent Transactions',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
             const SizedBox(height: 8),
 
             Expanded(
