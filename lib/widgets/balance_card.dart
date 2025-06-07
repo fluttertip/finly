@@ -15,7 +15,7 @@ class BalanceCard extends StatelessWidget {
 
     return Container(
       width: double.infinity, // Full width of parent container
-      height: 180, // Taller card for presence
+      height: 170, // Taller card for presence
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: gradientColors,
